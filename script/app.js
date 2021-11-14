@@ -46,6 +46,24 @@ clearBtn.onclick = () => reloadGrid(); //reset grid content
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value); //change value live
 sizeSlider.onchange = (e) => changeSize(e.target.value) //change grid size
 
+function activateButton(newMode) {
+    if (currentMode === 'rainbow') {
+      rainbowBtn.classList.remove('active')
+    } else if (currentMode === 'color') {
+      colorBtn.classList.remove('active')
+    } else if (currentMode === 'erase') {
+      eraserBtn.classList.remove('active')
+    }
+  
+    if (newMode === 'rainbow') {
+      rainbowBtn.classList.add('active')
+    } else if (newMode === 'color') {
+      colorBtn.classList.add('active')
+    } else if (newMode === 'erase') {
+      eraserBtn.classList.add('active')
+    }
+  }
+
 //app functions
 
 function updateSizeValue (value) { //displays value
@@ -94,24 +112,6 @@ function changeColor(e) { //colors on mouse hover
             break;
     }
 }
-
-function activateButton(newMode) {
-    if (currentMode === 'rainbow') {
-      rainbowBtn.classList.remove('active')
-    } else if (currentMode === 'color') {
-      colorBtn.classList.remove('active')
-    } else if (currentMode === 'erase') {
-      eraserBtn.classList.remove('active')
-    }
-  
-    if (newMode === 'rainbow') {
-      rainbowBtn.classList.add('active')
-    } else if (newMode === 'color') {
-      colorBtn.classList.add('active')
-    } else if (newMode === 'erase') {
-      eraserBtn.classList.add('active')
-    }
-  }
 
 window.onload = () => {
     setupGrid(DEFAULT_SIZE);
